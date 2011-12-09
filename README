@@ -1,0 +1,67 @@
+/*------------------------------------------------------------------------------
+
+    jQuery.ui.filterable - UI widget for filtering content based on text entry
+
+    Copyright 2011 James Sanders
+
+    Feel free to use this however you like, just don't blame me if it breaks
+    your code, causes your site to fall over, kills your dog, etc.
+
+    Requires: jQuery 1.5, jQuery UI 1.8
+
+    Usage:
+
+	.filterable(options)
+
+	When applied to a block element, will by default filter the children of
+	that element by checking whether the text content of each child
+	contains the user's text input. Filtered elements will simply be
+	assigned the class "ui-filterable-filtered", they will not be hidden or
+	otherwise manipulated. Desired visual representation should be
+	controlled through CSS attributes on that class.
+
+    Options:
+
+	input: <selector> | <element>
+
+	    Specifies which input(s) should be used to collect user entry. If
+	    omitted, a new text input will be inserted before the filterable
+	    block. Any input specified or created will be given the CSS class
+	    "ui-filterable-input".
+
+	filter: <selector>
+
+	    Specifies which elements will be tested against the filter. By
+	    default, all child elements will be tested.
+
+	delay: <millis>
+	    (default value = 1000)
+
+	    Defines how long to wait after a keypress in the input field(s)
+	    before reapplying the filter, to prevent excessive testing while the
+	    user is typing their search query.
+
+	visible: <function(input)>
+
+	    Specify a callback to check whether an element should be filtered.
+	    When called, "this" refers to the element being tested, and "input"
+	    is a jQuery of all inputs related to this filterable.
+
+	    The callback should return true if the element should not be
+	    filtered.
+
+    Events:
+
+	filtered: is triggered when an element is filtered. 
+
+	    Code example:
+
+		$(".selector").filterable({
+		    filtered: function(event, ui) {
+			// ui.item refers to the element being filtered
+		    }
+		});
+
+	unfiltered: is triggered when an element is no longer filtered.
+
+------------------------------------------------------------------------------*/
